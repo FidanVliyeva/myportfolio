@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slideshow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="slideshow.css">
+</head>
+
+<body>
+    <div class="main">
+        <i class="fa-solid fa-chevron-left" id="previous"></i>
+        <i class="fa-solid fa-angle-right" id="next"></i>
+        <div class="container">
+            <div class="main1"></div>
+            <div class="main1"></div>
+            <div class="main1"></div>
+        </div>
+    </div>
+    <script>
+        let main = document.querySelector(".main");
+        let previous = document.querySelector("#previous");
+        let next = document.querySelector("#next");
+        let body = document.querySelector("body");
+        let sekil = ["url(https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000)", "url(https://news.climate.columbia.edu/wp-content/uploads/2021/04/mark-koch-KiRlN3jjVNU-unsplash-637x425.jpeg)", "url(https://hips.hearstapps.com/hmg-prod/images/nature-quotes-landscape-1648265299.jpg?crop=1.00xw:0.760xh;0,0.0587xh&resize=1200:*)"];
+        let index=0;
+        main.style.backgroundImage=sekil[index];
+        main.style.backgroundSize='cover';
+        next.addEventListener("click",()=>{
+          if(index<sekil.length-1){
+            index++;
+          }
+          else if(index==sekil.length-1){
+            index==0;
+          }
+          main.style.backgroundImage=sekil[index];
+
+          for(j=0;j<=sekil.length-1;j++){
+            document.querySelectorAll(".main1")[j].style.backgroundColor="grey";
+    
+          }
+          document.querySelectorAll(".main1")[index].style.backgroundColor="white";
+        })
+        previous.addEventListener("click",()=>{
+            if(index==0){
+            index=sekil.length;
+          }
+          else if(index<=sekil.length-1){
+            index--;
+          }
+          main.style.backgroundImage=sekil[index];
+
+          for(let j=0;j<=sekil.length-1;j++){
+            document.querySelectorAll(".main1")[j].style.backgroundColor="grey";
+    
+          }
+          document.querySelectorAll(".main1")[index].style.backgroundColor="white";
+        })
+        
+        </script>
+</body >
+</html >

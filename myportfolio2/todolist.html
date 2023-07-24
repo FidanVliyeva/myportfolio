@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list </title>
+    <link rel="stylesheet" href="todolist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="child1">
+            <b>TodoList Sehifesi</b>
+        </div>
+        <!-- TODO ELAVE EDECIK -->
+
+        <input id="child2" placeholder=" Todo Daxil Edin">
+        <button id="button" onclick="elaveet()">
+            Todo Elave Edin
+        </button>
+
+        <hr style="color: grey;">
+        <div class="list">
+            <b>Todo Listesi</b>
+        </div>
+        <form action="">
+            <input id="searchtodo" keyup="filter()" placeholder=" Todo Axtarin">
+            <button id="button2"  style="margin-top:20px;">Axtarin</button>
+        </form>
+        <!-- Yazdiqlarim bura dusecek -->
+        <ul id="lists">
+
+        </ul>
+        <!-- Silme butonu -->
+        <button id="button1" style="margin-top:20px;">Butun Todolari Sil</button>
+
+    </div>
+    <script>
+        let button2=document.getElementById("button2");
+       let search=document.getElementById("searchtodo");
+        let todo = document.getElementById("child2");
+        let list = document.getElementById("lists");
+
+        function elaveet() {
+            if (todo.value === '') {
+                alert("Please enter something!");
+            }
+            else {
+                let li = document.createElement("li");
+                li.innerHTML = todo.value;
+                list.appendChild(li);
+            
+            };
+            todo.value = "";
+            saveData();
+        };
+        /* Brauzer acilib baglanandan sonra bele yaddasda qalir data */
+        function saveData() {
+            localStorage.setItem("data", list.innerHTML);
+        }
+
+    function filter(e){
+         const value=e.target.value.toUpperCase().trim();
+         if(list.length>0){
+            list.forEach(todos => {
+                if(todos.textContent.toUpperCase().trim().includes(value)){
+                    todos.setAttribute("style","display:block");
+                } 
+                else{
+                    todos.setAttribute("style","display:none")
+                }
+
+            });
+         }
+    }
+
+    </script>
+</body>
+
+</html>

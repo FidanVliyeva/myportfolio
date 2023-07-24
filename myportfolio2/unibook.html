@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="unibook.css">
+</head>
+
+<body>
+  <!-- table yaradilmasi -->
+  <table border="1" style="border-collapse:collapse;"  id="tab1" width="28%">
+    <thead>
+      <tr>
+        <th> N#</th>
+        <th>AD</th>
+        <th>Soyad</th>
+        <th>Ixtisas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+    </tbody>
+  </table>
+  <table border="1" style="border-collapse:collapse;"  id="tab2" width="28%">
+    <thead>
+      <tr>
+        <th> N#</th>
+        <th>AD</th>
+        <th>Soyad</th>
+        <th>Ixtisas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>6</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+    </tbody>
+  </table>
+  <table border="1" style="border-collapse:collapse;" id="tab3" width="28%">
+    <thead>
+      <tr>
+        <th> N#</th>
+        <th>AD</th>
+        <th>Soyad</th>
+        <th>Ixtisas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>11</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>Fidan</td>
+        <td>Veliyeva</td>
+        <td>Informasiya tehlukesizliyi</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- 1 2 3  evvel sonra hisseleri  -->
+  <p style="display: none;" class="A">1-5 Goster  ,cemi 30 setir</p>
+  <p style="display: none;" class="A">6-10 Goster ,cemi 30 setir</p>
+  <p style="display: none;" class="A">10-15 Goster,cemi 30 setir</p>
+  <div>
+    <p class="ab" id="before">Evvel</p>
+    <input type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    <p class="ab" id="after">Sonra</p>
+  </div>
+  <script>
+    let yazi = document.querySelectorAll(".A");
+    let table = document.querySelectorAll("table");
+    let input = document.querySelectorAll("input");
+    for (let i = 0; i < input.length; i++) {
+      for (let k = 0; k < yazi.length; k++) { 
+        input[i].addEventListener("click", function () {
+          for (let j = 0; j < table.length; j++) {
+            if (i == j) {
+              table[j].style.display = "block";
+            }
+            else {
+              table[j].style.display = "none";
+            }
+          }
+        });
+      }
+    }
+    for (let i = 0; i < input.length; i++) {
+      for (let k = 0; k < yazi.length; k++) { 
+        input[i].addEventListener("click", function () {
+          if (i == k) {
+            yazi[k].style.display="block";
+          }
+          else{
+            yazi[k].style.display="none";
+          }
+        })
+      }
+    }
+    //after click etdikde 1,2,3 e kecilmesi
+    let a=document.querySelectorAll("input");
+   after.addEventListener("click",function(){
+   for(let i=0;i<a.length;i++){
+        a[i].style.backgorundColor="ff7d0a";
+        tab[i].style.display="block";
+   }
+   });
+      </script>
+</body>
+
+</html>
